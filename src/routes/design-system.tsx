@@ -1021,21 +1021,18 @@ function BadgesSection() {
       <SectionHeader
         icon={Sparkles}
         title="Badges"
-        description="Compact status indicators and labels with rounded-full styling."
+        description="Subtle outlined status indicators with functional color variants and glow effects."
       />
 
       <Card size="sm">
         <CardHeader>
-          <CardTitle>Variants</CardTitle>
-          <CardDescription>
-            Six badge variants for different contexts
-          </CardDescription>
+          <CardTitle>Standard Variants</CardTitle>
+          <CardDescription>Core badge styles for general use</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="default">Default</Badge>
             <Badge variant="secondary">Secondary</Badge>
-            <Badge variant="destructive">Destructive</Badge>
             <Badge variant="outline">Outline</Badge>
             <Badge variant="ghost">Ghost</Badge>
             <Badge variant="link">Link</Badge>
@@ -1045,30 +1042,47 @@ function BadgesSection() {
 
       <Card size="sm" className="mt-4">
         <CardHeader>
-          <CardTitle>With Icons</CardTitle>
+          <CardTitle>Functional Colors</CardTitle>
           <CardDescription>
-            Badges with leading icons for enhanced clarity
+            Outlined badges with subtle backgrounds, colored borders, and glow
+            effects for status indication
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="default">
-              <Check className="size-2.5" /> Active
+            <Badge variant="success">
+              <Check className="size-3" /> Success
+            </Badge>
+            <Badge variant="warning">
+              <AlertTriangle className="size-3" /> Warning
+            </Badge>
+            <Badge variant="error">
+              <X className="size-3" /> Error
+            </Badge>
+            <Badge variant="info">
+              <Info className="size-3" /> Info
+            </Badge>
+            <Badge variant="neutral">
+              <Clock className="size-3" /> Neutral
+            </Badge>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card size="sm" className="mt-4">
+        <CardHeader>
+          <CardTitle>Destructive</CardTitle>
+          <CardDescription>
+            Destructive variant with red glow for critical actions
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="destructive">
+              <Trash2 className="size-3" /> Delete
             </Badge>
             <Badge variant="destructive">
-              <X className="size-2.5" /> Error
-            </Badge>
-            <Badge variant="outline">
-              <Clock className="size-2.5" /> Pending
-            </Badge>
-            <Badge variant="secondary">
-              <Star className="size-2.5" /> Featured
-            </Badge>
-            <Badge variant="outline">
-              <Shield className="size-2.5" /> Secure
-            </Badge>
-            <Badge variant="outline">
-              <Zap className="size-2.5" /> Fast
+              <AlertTriangle className="size-3" /> Critical
             </Badge>
           </div>
         </CardContent>
@@ -1219,6 +1233,40 @@ function InputsSection() {
             <div className="space-y-1.5">
               <Label>Disabled</Label>
               <Input disabled placeholder="Disabled input" />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card size="sm">
+          <CardHeader>
+            <CardTitle>Focus & Error States</CardTitle>
+            <CardDescription>
+              Input states for active focus and validation errors
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="space-y-1.5">
+              <Label htmlFor="focused-input">Focused</Label>
+              <Input
+                id="focused-input"
+                defaultValue="This input is focused"
+                className="ring-2 ring-ring/50 focus-visible:ring-ring/50"
+                autoFocus
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="error-input" className="text-destructive">
+                Username
+              </Label>
+              <Input
+                id="error-input"
+                defaultValue="inv@lid"
+                aria-invalid
+                className="border-destructive/50 text-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
+              />
+              <p className="text-xs text-destructive">
+                Username can only contain letters and numbers.
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -1408,7 +1456,7 @@ function TablesSection() {
                 </TableCell>
                 <TableCell>Designer</TableCell>
                 <TableCell>
-                  <Badge variant="default">Active</Badge>
+                  <StatusBadge variant="success">Active</StatusBadge>
                 </TableCell>
                 <TableCell className="text-right">$1,999.00</TableCell>
                 <TableCell>
@@ -1431,7 +1479,7 @@ function TablesSection() {
                 </TableCell>
                 <TableCell>Developer</TableCell>
                 <TableCell>
-                  <Badge variant="outline">Away</Badge>
+                  <StatusBadge variant="warning">Away</StatusBadge>
                 </TableCell>
                 <TableCell className="text-right">$2,450.00</TableCell>
                 <TableCell>
@@ -1454,7 +1502,7 @@ function TablesSection() {
                 </TableCell>
                 <TableCell>Product Manager</TableCell>
                 <TableCell>
-                  <Badge variant="secondary">Busy</Badge>
+                  <StatusBadge variant="info">Busy</StatusBadge>
                 </TableCell>
                 <TableCell className="text-right">$3,200.00</TableCell>
                 <TableCell>
@@ -1477,7 +1525,7 @@ function TablesSection() {
                 </TableCell>
                 <TableCell>Data Analyst</TableCell>
                 <TableCell>
-                  <Badge variant="destructive">Offline</Badge>
+                  <StatusBadge variant="error">Offline</StatusBadge>
                 </TableCell>
                 <TableCell className="text-right">$980.00</TableCell>
                 <TableCell>
@@ -1498,6 +1546,45 @@ function TablesSection() {
         </CardContent>
       </Card>
     </div>
+  )
+}
+
+function StatusBadge({
+  variant = "success",
+  children,
+}: {
+  variant: "success" | "warning" | "info" | "error"
+  children: React.ReactNode
+}) {
+  const dotColors = {
+    success: "bg-emerald-500",
+    warning: "bg-amber-500",
+    info: "bg-blue-500",
+    error: "bg-red-500",
+  }
+
+  const variantClasses = {
+    success:
+      "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:border-emerald-400/30 dark:text-emerald-400",
+    warning:
+      "border-amber-500/30 bg-amber-500/10 text-amber-600 dark:border-amber-400/30 dark:text-amber-400",
+    info: "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:border-blue-400/30 dark:text-blue-400",
+    error:
+      "border-red-500/30 bg-red-500/10 text-red-600 dark:border-red-400/30 dark:text-red-400",
+  }
+
+  return (
+    <span
+      className={cn(
+        "relative inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-lg border px-3 py-0.5 text-xs font-medium whitespace-nowrap",
+        variantClasses[variant]
+      )}
+    >
+      <span
+        className={cn("size-1.5 shrink-0 rounded-full", dotColors[variant])}
+      />
+      {children}
+    </span>
   )
 }
 
