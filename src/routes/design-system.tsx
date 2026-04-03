@@ -207,6 +207,10 @@ function DesignSystemContent() {
                   <SpacingSection />
                 </section>
 
+                <section id="motion">
+                  <MotionSection />
+                </section>
+
                 <section id="buttons">
                   <ButtonsSection />
                 </section>
@@ -1932,6 +1936,300 @@ function DropdownsSection() {
           </CardContent>
         </Card>
       </div>
+    </div>
+  )
+}
+
+function MotionSection() {
+  const timingTokens = [
+    {
+      token: "--duration-fast",
+      value: "120ms",
+      usage: "Hover state, focus ring, tooltip",
+      width: "40%",
+    },
+    {
+      token: "--duration-base",
+      value: "200ms",
+      usage: "Button, input, tab, badge, default transition",
+      width: "66%",
+    },
+    {
+      token: "--duration-slow",
+      value: "300ms",
+      usage: "Modal open, drawer slide, spring action",
+      width: "100%",
+    },
+  ]
+
+  const easingCurves = [
+    {
+      token: "--ease-out",
+      curve: "cubic-bezier(0.16, 1, 0.3, 1)",
+      character: "Default masuk — deselerasi cepat",
+      path: "M 10,110 C 26,10 36,10 110,10",
+      label: "out",
+    },
+    {
+      token: "--ease-in",
+      curve: "cubic-bezier(0.4, 0, 1, 1)",
+      character: "Default keluar — akselerasi",
+      path: "M 10,110 C 50,110 110,110 110,10",
+      label: "in",
+    },
+    {
+      token: "--ease-inout",
+      curve: "cubic-bezier(0.45, 0, 0.55, 1)",
+      character: "Symmetric — tab switch, state toggle",
+      path: "M 10,110 C 55,110 65,10 110,10",
+      label: "inout",
+    },
+    {
+      token: "--ease-spring",
+      curve: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      character: "Bouncy — toggle, konfirmasi, popover",
+      path: "M 10,110 C 44,-45 74,10 110,10",
+      label: "spring",
+    },
+  ]
+
+  return (
+    <div>
+      <SectionHeader
+        icon={Zap}
+        title="Motion & Animation"
+        description="Timing and easing tokens for consistent, purposeful animations across the design system."
+      />
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card size="sm">
+          <CardHeader>
+            <CardTitle>Timing Scale</CardTitle>
+            <CardDescription>
+              Relative duration values visualized proportionally
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {timingTokens.map((t, i) => (
+                <div key={t.token} className="flex flex-col gap-1.5">
+                  <div className="flex items-baseline justify-between">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-mono text-xs">{t.token}</span>
+                      <span className="text-[0.625rem] text-muted-foreground">
+                        {t.value}
+                      </span>
+                    </div>
+                    <span className="text-[0.625rem] text-muted-foreground">
+                      {t.usage}
+                    </span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-muted/50">
+                    <div
+                      className="h-full rounded-full bg-primary transition-all"
+                      style={{
+                        width: t.width,
+                        animationDelay: `${i * 100}ms`,
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card size="sm">
+          <CardHeader>
+            <CardTitle>Easing Curves</CardTitle>
+            <CardDescription>
+              Cubic-bezier curves rendered as motion paths
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-3">
+              {easingCurves.map((e) => (
+                <div key={e.token} className="flex flex-col gap-1.5">
+                  <div className="overflow-hidden rounded-lg border border-border/50 bg-muted/30">
+                    <svg viewBox="0 0 120 120" className="h-20 w-full">
+                      {/* Grid */}
+                      <line
+                        x1="10"
+                        y1="10"
+                        x2="10"
+                        y2="110"
+                        stroke="currentColor"
+                        className="text-border/60"
+                        strokeWidth="0.5"
+                      />
+                      <line
+                        x1="10"
+                        y1="110"
+                        x2="110"
+                        y2="110"
+                        stroke="currentColor"
+                        className="text-border/60"
+                        strokeWidth="0.5"
+                      />
+                      <line
+                        x1="10"
+                        y1="10"
+                        x2="110"
+                        y2="10"
+                        stroke="currentColor"
+                        className="text-border/30"
+                        strokeWidth="0.3"
+                        strokeDasharray="2 2"
+                      />
+                      <line
+                        x1="110"
+                        y1="10"
+                        x2="110"
+                        y2="110"
+                        stroke="currentColor"
+                        className="text-border/30"
+                        strokeWidth="0.3"
+                        strokeDasharray="2 2"
+                      />
+                      {/* Diagonal reference */}
+                      <line
+                        x1="10"
+                        y1="110"
+                        x2="110"
+                        y2="10"
+                        stroke="currentColor"
+                        className="text-muted-foreground/20"
+                        strokeWidth="0.4"
+                        strokeDasharray="3 3"
+                      />
+                      {/* Curve */}
+                      <path
+                        d={e.path}
+                        fill="none"
+                        stroke="currentColor"
+                        className="text-primary"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                      {/* Animated dot */}
+                      <circle
+                        r="2.5"
+                        fill="currentColor"
+                        className="text-primary"
+                      >
+                        <animateMotion
+                          dur="2s"
+                          repeatCount="indefinite"
+                          path={e.path}
+                        />
+                      </circle>
+                      {/* Control points for spring */}
+                      {e.label === "spring" && (
+                        <>
+                          <circle
+                            cx="44"
+                            cy="-45"
+                            r="1.5"
+                            fill="none"
+                            stroke="currentColor"
+                            className="text-muted-foreground/40"
+                            strokeWidth="0.5"
+                          />
+                          <circle
+                            cx="74"
+                            cy="10"
+                            r="1.5"
+                            fill="none"
+                            stroke="currentColor"
+                            className="text-muted-foreground/40"
+                            strokeWidth="0.5"
+                          />
+                        </>
+                      )}
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[0.625rem]">{e.token}</p>
+                    <p className="text-[0.625rem] text-muted-foreground">
+                      {e.character}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Card size="sm" className="mt-4">
+        <CardHeader>
+          <CardTitle>Interactive Demos</CardTitle>
+          <CardDescription>
+            Hover to see timing and easing tokens in action
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div>
+              <p className="mb-2 text-[0.625rem] font-medium tracking-wider text-muted-foreground uppercase">
+                Duration comparison
+              </p>
+              <div className="flex flex-wrap items-end gap-4">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-out)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    120ms
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    200ms
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    300ms
+                  </span>
+                </div>
+              </div>
+            </div>
+            <Separator />
+            <div>
+              <p className="mb-2 text-[0.625rem] font-medium tracking-wider text-muted-foreground uppercase">
+                Easing comparison
+              </p>
+              <div className="flex flex-wrap items-end gap-4">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    ease-out
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-base)] ease-[var(--ease-in)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    ease-in
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-base)] ease-[var(--ease-inout)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    ease-inout
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-10 w-20 rounded-lg bg-primary/80 transition-transform duration-[var(--duration-base)] ease-[var(--ease-spring)] hover:scale-110" />
+                  <span className="text-[0.625rem] text-muted-foreground">
+                    ease-spring
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
