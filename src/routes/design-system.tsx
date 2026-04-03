@@ -76,7 +76,7 @@ import {
 } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
   Table,
@@ -110,27 +110,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
   SidebarInset,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarProvider,
-  SidebarSeparator,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
 import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/hooks/use-mobile"
 
@@ -153,228 +148,98 @@ function DesignSystemContent() {
   return (
     <SidebarProvider defaultOpen={!isMobile}>
       <TooltipProvider delayDuration={0}>
-        <div className="flex min-h-svh">
-          <Sidebar variant="inset">
-            <SidebarHeader>
-              <div className="flex items-center gap-2 px-2 py-1">
-                <div className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <Palette className="size-3.5" />
+        <AppSidebar />
+
+        <SidebarInset className="flex flex-col">
+          <header className="sticky top-0 z-50 flex h-12 shrink-0 items-center gap-2 border-b border-border/50 bg-background/80 px-4 backdrop-blur-xl">
+            <SidebarTrigger />
+            <Separator orientation="vertical" className="h-4" />
+            <div className="flex flex-1 items-center gap-2">
+              <Search className="size-3.5 text-muted-foreground" />
+              <Input
+                placeholder="Search components..."
+                className="h-7 max-w-xs border-0 bg-transparent shadow-none focus-visible:ring-0"
+              />
+            </div>
+            <Button
+              variant="ghost"
+              size="icon-xs"
+              onClick={toggleTheme}
+              className="ml-auto"
+            >
+              {theme === "light" ? (
+                <Moon className="size-3.5" />
+              ) : (
+                <Sun className="size-3.5" />
+              )}
+            </Button>
+          </header>
+
+          <main className="flex-1 overflow-auto">
+            <div className="mx-auto max-w-6xl p-6 lg:p-8">
+              <div className="mb-8">
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className="text-[0.625rem]">
+                    <Sparkles className="size-2.5" />
+                    Living Documentation
+                  </Badge>
                 </div>
-                <div>
-                  <p className="text-xs leading-none font-medium">
-                    Design System
-                  </p>
-                  <p className="mt-1 text-[0.625rem] text-muted-foreground">
-                    v1.0.0
-                  </p>
-                </div>
+                <h1 className="mt-3 font-heading text-2xl font-medium">
+                  Design System
+                </h1>
+                <p className="mt-1 max-w-xl text-xs/relaxed text-muted-foreground">
+                  A comprehensive showcase of the design system tokens,
+                  components, and patterns. Toggle dark mode to see how
+                  components adapt across themes.
+                </p>
               </div>
-            </SidebarHeader>
-            <SidebarSeparator />
-            <SidebarContent>
-              <SidebarGroup>
-                <SidebarGroupLabel>Overview</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild isActive>
-                        <a href="#colors">
-                          <Palette className="size-4" />
-                          <span>Colors</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#typography">
-                          <Type className="size-4" />
-                          <span>Typography</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#spacing">
-                          <Layers className="size-4" />
-                          <span>Spacing</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-              <SidebarGroup>
-                <SidebarGroupLabel>Components</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#buttons">
-                          <Component className="size-4" />
-                          <span>Buttons</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#badges">
-                          <Badge className="size-2.5" />
-                          <span>Badges</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#cards">
-                          <Layers className="size-4" />
-                          <span>Cards</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#inputs">
-                          <Edit className="size-4" />
-                          <span>Inputs</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#tables">
-                          <BarChart3 className="size-4" />
-                          <span>Tables</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#dialogs">
-                          <Eye className="size-4" />
-                          <span>Dialogs</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton asChild>
-                        <a href="#dropdowns">
-                          <ChevronDown className="size-4" />
-                          <span>Dropdowns</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-            </SidebarContent>
-            <SidebarSeparator />
-            <SidebarFooter>
-              <div className="flex items-center gap-2 px-2 py-1">
-                <Avatar className="size-6">
-                  <AvatarImage src="" />
-                  <AvatarFallback className="text-[0.5rem]">DS</AvatarFallback>
-                </Avatar>
-                <div className="flex-1 truncate">
-                  <p className="truncate text-xs font-medium">Design Team</p>
-                  <p className="truncate text-[0.625rem] text-muted-foreground">
-                    design@acme.co
-                  </p>
-                </div>
+
+              <div className="space-y-12">
+                <section id="colors">
+                  <ColorPaletteSection />
+                </section>
+
+                <section id="typography">
+                  <TypographySection />
+                </section>
+
+                <section id="spacing">
+                  <SpacingSection />
+                </section>
+
+                <section id="buttons">
+                  <ButtonsSection />
+                </section>
+
+                <section id="badges">
+                  <BadgesSection />
+                </section>
+
+                <section id="cards">
+                  <CardsSection />
+                </section>
+
+                <section id="inputs">
+                  <InputsSection />
+                </section>
+
+                <section id="tables">
+                  <TablesSection />
+                </section>
+
+                <section id="dialogs">
+                  <DialogsSection />
+                </section>
+
+                <section id="dropdowns">
+                  <DropdownsSection />
+                </section>
+
+                <IconsSection />
               </div>
-            </SidebarFooter>
-          </Sidebar>
-
-          <SidebarInset>
-            <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border/50 px-4">
-              <SidebarTrigger />
-              <Separator orientation="vertical" className="h-4" />
-              <div className="flex flex-1 items-center gap-2">
-                <Search className="size-3.5 text-muted-foreground" />
-                <Input
-                  placeholder="Search components..."
-                  className="h-7 max-w-xs border-0 bg-transparent shadow-none focus-visible:ring-0"
-                />
-              </div>
-              <Button
-                variant="ghost"
-                size="icon-xs"
-                onClick={toggleTheme}
-                className="ml-auto"
-              >
-                {theme === "light" ? (
-                  <Moon className="size-3.5" />
-                ) : (
-                  <Sun className="size-3.5" />
-                )}
-              </Button>
-            </header>
-
-            <main className="flex-1 overflow-auto">
-              <div className="mx-auto max-w-6xl p-6 lg:p-8">
-                <div className="mb-8">
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="text-[0.625rem]">
-                      <Sparkles className="size-2.5" />
-                      Living Documentation
-                    </Badge>
-                  </div>
-                  <h1 className="mt-3 font-heading text-2xl font-medium">
-                    Design System
-                  </h1>
-                  <p className="mt-1 max-w-xl text-xs/relaxed text-muted-foreground">
-                    A comprehensive showcase of the design system tokens,
-                    components, and patterns. Toggle dark mode to see how
-                    components adapt across themes.
-                  </p>
-                </div>
-
-                <div className="space-y-12">
-                  <section id="colors">
-                    <ColorPaletteSection />
-                  </section>
-
-                  <section id="typography">
-                    <TypographySection />
-                  </section>
-
-                  <section id="spacing">
-                    <SpacingSection />
-                  </section>
-
-                  <section id="buttons">
-                    <ButtonsSection />
-                  </section>
-
-                  <section id="badges">
-                    <BadgesSection />
-                  </section>
-
-                  <section id="cards">
-                    <CardsSection />
-                  </section>
-
-                  <section id="inputs">
-                    <InputsSection />
-                  </section>
-
-                  <section id="tables">
-                    <TablesSection />
-                  </section>
-
-                  <section id="dialogs">
-                    <DialogsSection />
-                  </section>
-
-                  <section id="dropdowns">
-                    <DropdownsSection />
-                  </section>
-
-                  <IconsSection />
-                </div>
-              </div>
-            </main>
-          </SidebarInset>
-        </div>
+            </div>
+          </main>
+        </SidebarInset>
       </TooltipProvider>
     </SidebarProvider>
   )
@@ -1501,28 +1366,36 @@ function TablesSection() {
       <SectionHeader
         icon={BarChart3}
         title="Data Tables"
-        description="Structured data display with sortable columns and row interactions."
+        description="Structured data display with sortable columns, checkboxes, and row actions."
       />
 
       <Card size="sm">
         <CardHeader>
           <CardTitle>Team Members</CardTitle>
           <CardDescription>
-            A table showing team member information.
+            A table showing team member information with row selection and
+            actions.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead className="w-10">
+                  <Checkbox aria-label="Select all rows" />
+                </TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Role</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="text-right">Revenue</TableHead>
+                <TableHead className="w-10" />
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
+                <TableCell>
+                  <Checkbox aria-label="Select row" />
+                </TableCell>
                 <TableCell className="font-medium">
                   <div className="flex items-center gap-2">
                     <Avatar className="size-5">
@@ -1538,8 +1411,14 @@ function TablesSection() {
                   <Badge variant="default">Active</Badge>
                 </TableCell>
                 <TableCell className="text-right">$1,999.00</TableCell>
+                <TableCell>
+                  <RowActions />
+                </TableCell>
               </TableRow>
               <TableRow>
+                <TableCell>
+                  <Checkbox aria-label="Select row" />
+                </TableCell>
                 <TableCell className="font-medium">
                   <div className="flex items-center gap-2">
                     <Avatar className="size-5">
@@ -1555,8 +1434,14 @@ function TablesSection() {
                   <Badge variant="outline">Away</Badge>
                 </TableCell>
                 <TableCell className="text-right">$2,450.00</TableCell>
+                <TableCell>
+                  <RowActions />
+                </TableCell>
               </TableRow>
               <TableRow>
+                <TableCell>
+                  <Checkbox aria-label="Select row" />
+                </TableCell>
                 <TableCell className="font-medium">
                   <div className="flex items-center gap-2">
                     <Avatar className="size-5">
@@ -1572,8 +1457,14 @@ function TablesSection() {
                   <Badge variant="secondary">Busy</Badge>
                 </TableCell>
                 <TableCell className="text-right">$3,200.00</TableCell>
+                <TableCell>
+                  <RowActions />
+                </TableCell>
               </TableRow>
               <TableRow>
+                <TableCell>
+                  <Checkbox aria-label="Select row" />
+                </TableCell>
                 <TableCell className="font-medium">
                   <div className="flex items-center gap-2">
                     <Avatar className="size-5">
@@ -1589,20 +1480,74 @@ function TablesSection() {
                   <Badge variant="destructive">Offline</Badge>
                 </TableCell>
                 <TableCell className="text-right">$980.00</TableCell>
+                <TableCell>
+                  <RowActions />
+                </TableCell>
               </TableRow>
             </TableBody>
             <TableFooter>
               <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
+                <TableCell colSpan={4}>Total</TableCell>
                 <TableCell className="text-right font-medium">
                   $8,629.00
                 </TableCell>
+                <TableCell />
               </TableRow>
             </TableFooter>
           </Table>
         </CardContent>
       </Card>
     </div>
+  )
+}
+
+function RowActions() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="ghost" size="icon-xs" className="size-7">
+          <MoreHorizontal className="size-3.5" />
+          <span className="sr-only">Row actions</span>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-44 p-1">
+        <div className="flex flex-col gap-0.5">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-7 justify-start gap-2 px-2 text-xs font-normal"
+          >
+            <Edit className="size-3.5" />
+            Edit
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-7 justify-start gap-2 px-2 text-xs font-normal"
+          >
+            <Share2 className="size-3.5" />
+            Share
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-7 justify-start gap-2 px-2 text-xs font-normal"
+          >
+            <Bookmark className="size-3.5" />
+            Bookmark
+          </Button>
+          <Separator className="my-0.5" />
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-7 justify-start gap-2 px-2 text-xs font-normal text-destructive"
+          >
+            <Trash2 className="size-3.5" />
+            Delete
+          </Button>
+        </div>
+      </PopoverContent>
+    </Popover>
   )
 }
 
