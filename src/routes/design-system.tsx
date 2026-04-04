@@ -924,7 +924,7 @@ function ButtonsSection() {
           <CardHeader>
             <CardTitle>Sizes</CardTitle>
             <CardDescription>
-              Four size scales from extra-small to large
+              Four size scales: xs (h-6), sm (h-8), default (h-9), lg (h-10)
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -941,28 +941,29 @@ function ButtonsSection() {
           <CardHeader>
             <CardTitle>Icon Buttons</CardTitle>
             <CardDescription>
-              Icon-only buttons in all size variants
+              Icon-only buttons: icon-xs (24px), icon-sm (32px), icon (36px),
+              icon-lg (40px)
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap items-center gap-2">
               <Button size="icon-xs" variant="outline">
-                <Plus className="size-2.5" />
-              </Button>
-              <Button size="icon-sm" variant="outline">
                 <Plus className="size-3" />
               </Button>
+              <Button size="icon-sm" variant="outline">
+                <Plus className="size-4" />
+              </Button>
               <Button size="icon" variant="outline">
-                <Plus className="size-3.5" />
+                <Plus className="size-4" />
               </Button>
               <Button size="icon-lg" variant="outline">
                 <Plus className="size-4" />
               </Button>
               <Button size="icon" variant="default">
-                <Plus className="size-3.5" />
+                <Plus className="size-4" />
               </Button>
               <Button size="icon" variant="destructive">
-                <X className="size-3.5" />
+                <X className="size-4" />
               </Button>
             </div>
           </CardContent>
@@ -972,25 +973,25 @@ function ButtonsSection() {
           <CardHeader>
             <CardTitle>With Icons</CardTitle>
             <CardDescription>
-              Buttons with leading and trailing icons
+              Buttons with leading and trailing icons (default icon: 16px)
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap items-center gap-2">
               <Button>
-                <Plus className="size-3.5" />
+                <Plus className="size-4" />
                 Create
               </Button>
               <Button variant="outline">
-                <Download className="size-3.5" />
+                <Download className="size-4" />
                 Download
               </Button>
               <Button variant="secondary">
                 Next
-                <ArrowRight className="size-3.5" />
+                <ArrowRight className="size-4" />
               </Button>
               <Button variant="destructive">
-                <Trash2 className="size-3.5" />
+                <Trash2 className="size-4" />
                 Delete
               </Button>
             </div>
@@ -1048,8 +1049,8 @@ function BadgesSection() {
         <CardHeader>
           <CardTitle>Functional Colors</CardTitle>
           <CardDescription>
-            Outlined badges with subtle backgrounds, colored borders, and glow
-            effects for status indication
+            Outlined badges with subtle backgrounds and colored borders for
+            status indication
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -1109,11 +1110,12 @@ function CardsSection() {
           <CardHeader>
             <CardTitle>Default Card</CardTitle>
             <CardDescription>
-              A standard card with header, content, and footer sections.
+              Rounded-xl corners, shadow-xs, 24px padding, 24px gap between
+              sections.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-xs/relaxed text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Cards provide a flexible container for grouping related content.
               They support headers, footers, actions, and descriptions.
             </p>
@@ -1130,11 +1132,11 @@ function CardsSection() {
           <CardHeader>
             <CardTitle>Compact Card</CardTitle>
             <CardDescription>
-              A smaller variant for dense layouts.
+              Smaller variant with 16px padding and 16px section gaps.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-xs/relaxed text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               The compact card uses reduced padding and tighter spacing for
               information-dense interfaces.
             </p>
@@ -1166,7 +1168,7 @@ function CardsSection() {
               </div>
               <div>
                 <p className="text-sm font-medium">Active Users</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   1,234 currently online
                 </p>
               </div>
@@ -1184,21 +1186,21 @@ function CardsSection() {
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">Revenue</span>
+                <span className="text-sm text-muted-foreground">Revenue</span>
                 <span className="text-sm font-medium">$45,231</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">Growth</span>
+                <span className="text-sm text-muted-foreground">Growth</span>
                 <span className="text-sm font-medium text-primary">+20.1%</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">Users</span>
+                <span className="text-sm text-muted-foreground">Users</span>
                 <span className="text-sm font-medium">+573</span>
               </div>
             </div>
           </CardContent>
           <CardFooter className="border-t">
-            <p className="text-[0.625rem] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Last updated 5 minutes ago
             </p>
           </CardFooter>
@@ -1766,28 +1768,28 @@ function DialogsSection() {
           <CardContent>
             <Tabs defaultValue="account">
               <TabsList className="w-full">
-                <TabsTrigger value="account" className="flex-1">
+                <TabsTrigger value="account" className="flex-1 text-sm">
                   Account
                 </TabsTrigger>
-                <TabsTrigger value="password" className="flex-1">
+                <TabsTrigger value="password" className="flex-1 text-sm">
                   Password
                 </TabsTrigger>
-                <TabsTrigger value="notifications" className="flex-1">
+                <TabsTrigger value="notifications" className="flex-1 text-sm">
                   Notifications
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="account" className="mt-3">
-                <p className="text-xs/relaxed text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   Manage your account settings and preferences.
                 </p>
               </TabsContent>
               <TabsContent value="password" className="mt-3">
-                <p className="text-xs/relaxed text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   Change your password and security settings.
                 </p>
               </TabsContent>
               <TabsContent value="notifications" className="mt-3">
-                <p className="text-xs/relaxed text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   Configure your notification preferences.
                 </p>
               </TabsContent>
