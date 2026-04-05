@@ -128,6 +128,22 @@ import {
 import { AppSidebar } from "@/components/app-sidebar"
 import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/hooks/use-mobile"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart"
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  XAxis,
+  Pie,
+  PieChart,
+  Cell,
+} from "recharts"
 
 export const Route = createFileRoute("/design-system")({
   component: DesignSystemPage,
@@ -237,6 +253,10 @@ function DesignSystemContent() {
 
                 <section id="dropdowns">
                   <DropdownsSection />
+                </section>
+
+                <section id="charts">
+                  <ChartsSection />
                 </section>
 
                 <IconsSection />
@@ -472,43 +492,43 @@ function ColorPaletteSection() {
       name: "sm",
       variable: "--radius-sm",
       calc: "calc(var(--radius) × 0.6)",
-      approx: "~4.3px",
+      approx: "~6px",
     },
     {
       name: "md",
       variable: "--radius-md",
       calc: "calc(var(--radius) × 0.8)",
-      approx: "~5.8px",
+      approx: "~8px",
     },
     {
       name: "lg",
       variable: "--radius-lg",
       calc: "var(--radius)",
-      approx: "~7.2px",
+      approx: "~10px",
     },
     {
       name: "xl",
       variable: "--radius-xl",
       calc: "calc(var(--radius) × 1.4)",
-      approx: "~10.1px",
+      approx: "~14px",
     },
     {
       name: "2xl",
       variable: "--radius-2xl",
       calc: "calc(var(--radius) × 1.8)",
-      approx: "~13px",
+      approx: "~18px",
     },
     {
       name: "3xl",
       variable: "--radius-3xl",
       calc: "calc(var(--radius) × 2.2)",
-      approx: "~15.8px",
+      approx: "~22px",
     },
     {
       name: "4xl",
       variable: "--radius-4xl",
       calc: "calc(var(--radius) × 2.6)",
-      approx: "~18.7px",
+      approx: "~26px",
     },
   ]
 
@@ -602,7 +622,7 @@ function ColorPaletteSection() {
             <CardHeader>
               <CardTitle>Border Radius Scale</CardTitle>
               <CardDescription>
-                Base radius: 0.45rem (~7.2px) — multiplied for each step
+                Base radius: 0.625rem (10px) — multiplied for each step
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -1026,7 +1046,7 @@ function BadgesSection() {
       <SectionHeader
         icon={Sparkles}
         title="Badges"
-        description="Subtle outlined status indicators with functional color variants and glow effects."
+        description="Subtle outlined status indicators with functional color variants."
       />
 
       <Card size="sm">
@@ -1078,7 +1098,7 @@ function BadgesSection() {
         <CardHeader>
           <CardTitle>Destructive</CardTitle>
           <CardDescription>
-            Destructive variant with red glow for critical actions
+            Destructive variant with outlined style for critical actions
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -2232,6 +2252,189 @@ function MotionSection() {
           </div>
         </CardContent>
       </Card>
+    </div>
+  )
+}
+
+function ChartsSection() {
+  const areaData = [
+    { month: "Jan", siswa: 120, guru: 80, kelas: 60 },
+    { month: "Feb", siswa: 180, guru: 110, kelas: 90 },
+    { month: "Mar", siswa: 150, guru: 130, kelas: 85 },
+    { month: "Apr", siswa: 220, guru: 150, kelas: 110 },
+    { month: "Mei", siswa: 200, guru: 170, kelas: 130 },
+    { month: "Jun", siswa: 280, guru: 190, kelas: 150 },
+  ]
+
+  const areaConfig = {
+    siswa: { label: "Siswa Aktif", color: "var(--chart-1)" },
+    guru: { label: "Guru Aktif", color: "var(--chart-2)" },
+    kelas: { label: "Kelas", color: "var(--chart-3)" },
+  }
+
+  const pieData = [
+    { name: "MI", value: 35, fill: "var(--chart-1)" },
+    { name: "MTs", value: 25, fill: "var(--chart-2)" },
+    { name: "MA", value: 20, fill: "var(--chart-3)" },
+    { name: "SD", value: 12, fill: "var(--chart-4)" },
+    { name: "SMP", value: 8, fill: "var(--chart-5)" },
+  ]
+
+  return (
+    <div>
+      <SectionHeader
+        icon={BarChart3}
+        title="Charts"
+        description="Data visualization components using Recharts with tooltip and legend support."
+      />
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Area Chart with Legend</CardTitle>
+            <CardDescription>
+              Monthly student, teacher, and class activity with interactive
+              tooltip and legend
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={areaConfig} className="h-64 w-full">
+              <AreaChart data={areaData}>
+                <defs>
+                  <linearGradient id="colorSiswa" x1="0" y1="0" x2="0" y2="1">
+                    <stop
+                      offset="5%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0.3}
+                    />
+                    <stop
+                      offset="95%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0}
+                    />
+                  </linearGradient>
+                  <linearGradient id="colorGuru" x1="0" y1="0" x2="0" y2="1">
+                    <stop
+                      offset="5%"
+                      stopColor="var(--chart-2)"
+                      stopOpacity={0.3}
+                    />
+                    <stop
+                      offset="95%"
+                      stopColor="var(--chart-2)"
+                      stopOpacity={0}
+                    />
+                  </linearGradient>
+                  <linearGradient id="colorKelas" x1="0" y1="0" x2="0" y2="1">
+                    <stop
+                      offset="5%"
+                      stopColor="var(--chart-3)"
+                      stopOpacity={0.3}
+                    />
+                    <stop
+                      offset="95%"
+                      stopColor="var(--chart-3)"
+                      stopOpacity={0}
+                    />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  className="stroke-border/50"
+                />
+                <XAxis
+                  dataKey="month"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  className="text-muted-foreground"
+                />
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent indicator="dot" />}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="siswa"
+                  stroke="var(--chart-1)"
+                  fillOpacity={1}
+                  fill="url(#colorSiswa)"
+                  strokeWidth={2}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="guru"
+                  stroke="var(--chart-2)"
+                  fillOpacity={1}
+                  fill="url(#colorGuru)"
+                  strokeWidth={2}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="kelas"
+                  stroke="var(--chart-3)"
+                  fillOpacity={1}
+                  fill="url(#colorKelas)"
+                  strokeWidth={2}
+                />
+              </AreaChart>
+            </ChartContainer>
+            <ChartLegend
+              content={
+                <ChartLegendContent
+                  nameKey="label"
+                  verticalAlign="bottom"
+                  className="text-xs"
+                />
+              }
+            />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Donut Chart with Center Text</CardTitle>
+            <CardDescription>
+              Distribution of educational units with tooltip on hover
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="relative mx-auto h-64 max-w-xs">
+              <ChartContainer config={{}} className="h-full w-full">
+                <PieChart>
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
+                  <Pie
+                    data={pieData}
+                    dataKey="value"
+                    nameKey="name"
+                    innerRadius={60}
+                    outerRadius={90}
+                    strokeWidth={2}
+                    stroke="var(--background)"
+                  >
+                    {pieData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={entry.fill}
+                        className="outline-hidden"
+                      />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ChartContainer>
+              <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+                <p className="text-2xl font-medium">5</p>
+                <p className="text-xs text-muted-foreground">
+                  Educational Units
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }

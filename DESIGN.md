@@ -23,44 +23,44 @@ The overall mood is **grounded yet refined**, creating a professional aesthetic 
 
 - **Pure White Canvas** (#FFFFFF) – Primary background color. Creates a clean, uncluttered surface for data-heavy dashboards and content areas, serving as the neutral foundation for the entire experience.
 - **Off-White Near-Pure** (#FAFAFA) – Sidebar background color. Provides a barely perceptible warmth that visually separates the navigation surface from the main content area without creating harsh contrast.
-- **Light Mist Gray** (#F7F7F7) – Muted and accent background. Used for subtle surface differentiation, tab panels, and secondary content zones.
+- **Light Mist Gray** (#F5F5F5) – Muted and accent background. Used for subtle surface differentiation, tab panels, and secondary content zones.
 - **Soft Cloud Gray** (#F4F4F5) – Secondary surface color. Used for card backgrounds in elevated contexts and secondary interactive surfaces.
 
 ### Accent & Interactive
 
-- **Vibrant Forest Green** (#0D9F6E) – The primary brand accent and sole saturated color in the palette. Used exclusively for primary call-to-action buttons, active navigation states, selected filters, key interactive highlights, and success confirmations. This confident green creates clear visual focus points while reinforcing the educational growth metaphor.
-- **Deep Forest Green** (#0A7A54) – Dark mode primary accent. Adjusted for optimal contrast against dark surfaces while maintaining brand identity.
-- **Emerald Light** (#6DD6A0) – Chart color 1 (lightest). Used for the first data series in visualizations, providing a soft entry point in the green gradient scale.
-- **Emerald Mid-Light** (#34B87A) – Chart color 2. Second data series in charts and graphs.
-- **Emerald Mid** (#1E9E65) – Chart color 3. Third data series, bridging light and dark greens.
-- **Emerald Primary** (#0D9F6E) – Chart color 4. Matches the primary brand color for emphasis in data visualization.
-- **Emerald Deep** (#0A7A54) – Chart color 5 (darkest). Used for the final data series, providing maximum contrast within the green palette.
+- **Deep Emerald Green** (#008236) – The primary brand accent and sole saturated color in the palette. Used exclusively for primary call-to-action buttons, active navigation states, selected filters, key interactive highlights, and success confirmations. This confident green creates clear visual focus points while reinforcing the educational growth metaphor.
+- **Dark Forest Green** (#016630) – Dark mode primary accent. Adjusted for optimal contrast against dark surfaces while maintaining brand identity.
+- **Mint Light** (#7BF1A8) – Chart color 1 (lightest). Used for the first data series in visualizations, providing a soft entry point in the green gradient scale.
+- **Bright Emerald** (#00C950) – Chart color 2. Second data series in charts and graphs. Also used as sidebar primary accent in dark mode.
+- **Vivid Green** (#00A63E) – Chart color 3. Third data series, bridging light and dark greens. Also used as sidebar primary accent in light mode.
+- **Deep Emerald** (#008236) – Chart color 4. Matches the primary brand color for emphasis in data visualization.
+- **Forest Deep** (#016630) – Chart color 5 (darkest). Used for the final data series, providing maximum contrast within the green palette.
 
 ### Typography & Text Hierarchy
 
-- **Near-Black Charcoal** (#252525) – Primary text color for headlines, labels, and body content. Provides strong readable contrast while being slightly softer and more refined than pure black.
-- **Medium Warm Gray** (#8E8E8E) – Secondary and muted text. Used for supporting metadata, placeholder text, disabled states, and tertiary labels. Creates clear typographic hierarchy without harsh contrast.
-- **Silver Border Gray** (#E8E8E8) – Border, input, and divider color. Creates structural separation that is present but unobtrusive, defining boundaries without competing with content.
+- **Rich Charcoal** (#0A0A0A) – Primary text color for headlines, labels, and body content. Provides strong readable contrast with a deep, refined black tone.
+- **Neutral Gray** (#737373) – Secondary and muted text. Used for supporting metadata, placeholder text, disabled states, and tertiary labels. Creates clear typographic hierarchy without harsh contrast.
+- **Light Border Gray** (#E5E5E5) – Border, input, and divider color. Creates structural separation that is present but unobtrusive, defining boundaries without competing with content.
 
 ### Functional States
 
-- **Coral Error Red** (#E54D42) – Error states, destructive actions, validation failures, and critical alerts. Demands immediate attention without being alarmist.
-- **Emerald Success** (#0D9F6E) – Success confirmations, completed states, and positive indicators. Shares the primary brand green for cohesive feedback language.
+- **Vivid Red** (#E7000B) – Error states, destructive actions, validation failures, and critical alerts. Demands immediate attention without being alarmist.
+- **Deep Emerald Success** (#008236) – Success confirmations, completed states, and positive indicators. Shares the primary brand green for cohesive feedback language.
 - **Amber Warning** (#F59E0B) – Warning states, pending actions, and cautionary indicators.
 - **Blue Information** (#3B82F6) – Informational callouts, neutral system messages, and helpful guidance.
-- **Neutral Muted** (#8E8E8E with #F7F7F7 background) – Disabled states, inactive elements, and recessive metadata.
+- **Neutral Muted** (#737373 with #F5F5F5 background) – Disabled states, inactive elements, and recessive metadata.
 
 ### Dark Mode Surfaces
 
-- **Charcoal Dark Canvas** (#252525) – Primary dark background. Replaces pure white with a deep, comfortable gray that reduces eye strain during extended administrative sessions.
-- **Dark Card Surface** (#343434) – Card, popover, and sidebar backgrounds in dark mode. Provides subtle elevation above the primary dark background.
-- **Dark Secondary** (#454547) – Secondary surfaces and muted backgrounds in dark mode.
-- **Dark Muted** (#444444) – Muted backgrounds for tabs, secondary panels, and recessive surfaces.
+- **Rich Charcoal Canvas** (#0A0A0A) – Primary dark background. Replaces pure white with a deep, comfortable near-black that reduces eye strain during extended administrative sessions.
+- **Dark Card Surface** (#171717) – Card, popover, and sidebar backgrounds in dark mode. Provides subtle elevation above the primary dark background.
+- **Dark Secondary** (#27272A) – Secondary surfaces and muted backgrounds in dark mode.
+- **Dark Muted** (#262626) – Muted backgrounds for tabs, secondary panels, and recessive surfaces.
 - **Frosted White Border** (rgba(255,255,255,0.10)) – Dark mode borders. Subtle white transparency creates structural definition against dark surfaces.
 - **Frosted White Input** (rgba(255,255,255,0.15)) – Dark mode input backgrounds. Slightly more opaque than borders for interactive surface recognition.
-- **Dark Ring Gray** (#8E8E8E) – Focus rings in dark mode.
+- **Dark Ring Gray** (#737373) – Focus rings in dark mode.
 - **Dark Text Primary** (#FAFAFA) – Primary text in dark mode. Near-white for maximum readability.
-- **Dark Text Muted** (#B5B5B5) – Secondary and muted text in dark mode.
+- **Dark Text Muted** (#A1A1A1) – Secondary and muted text in dark mode.
 
 ## 3. Typography Rules
 
@@ -73,8 +73,8 @@ The overall mood is **grounded yet refined**, creating a professional aesthetic 
 - **Body Default:** Regular weight (400), 14px (text-sm). Standard text for most UI elements including buttons, badges, tabs, and sidebar navigation.
 - **Body Large:** Regular weight (400), 16px (text-base). Primary reading text for input fields and content paragraphs.
 - **Body Small:** Regular weight (400), 12px (text-xs). Smaller text for secondary information and supporting labels.
-- **Muted Text:** Regular weight (400), Medium Warm Gray (#8E8E8E). Secondary information, supporting labels, and placeholder text.
-- **Link Text:** Medium weight (500), Primary Green (#0D9F6E), underline offset 4px. Clickable text throughout the application.
+- **Muted Text:** Regular weight (400), Neutral Gray (#737373). Secondary information, supporting labels, and placeholder text.
+- **Link Text:** Medium weight (500), Deep Emerald Green (#008236), underline offset 4px. Clickable text throughout the application.
 
 ### Spacing Principles
 
@@ -88,14 +88,14 @@ The overall mood is **grounded yet refined**, creating a professional aesthetic 
 ### Buttons
 
 - **Shape:** Subtly rounded corners (6px–10px depending on size) — approachable and modern without appearing playful. Uses `min(var(--radius-md), 8px)` for xs/sm variants.
-- **Primary:** Vibrant Forest Green (#0D9F6E) background with Pure White Canvas text. Comfortable padding (10px horizontal, 8px vertical for default). Hover darkens to 80% opacity. Active state presses down 1px for tactile feedback.
-- **Secondary:** Soft Cloud Gray (#F4F4F5) background with Near-Black Charcoal text. Hover darkens to 80% opacity.
-- **Outline:** Silver Border Gray (#E8E8E8) border with background. Hover fills with Light Mist Gray tint. Dark mode uses frosted white input background (30% opacity).
-- **Ghost:** No background or border. Hover fills with Light Mist Gray (#F7F7F7). Dark hover uses muted at 50% opacity.
-- **Destructive:** Coral Error Red at 10% opacity background with Coral Error Red text. Hover increases to 20% opacity. Dark mode uses 20%/30% opacity for better visibility.
+- **Primary:** Deep Emerald Green (#008236) background with Pure White Canvas text. Comfortable padding (10px horizontal, 8px vertical for default). Hover darkens to 80% opacity. Active state presses down 1px for tactile feedback.
+- **Secondary:** Soft Cloud Gray (#F4F4F5) background with Rich Charcoal text. Hover darkens to 80% opacity.
+- **Outline:** Light Border Gray (#E5E5E5) border with background. Hover fills with Light Mist Gray tint. Dark mode uses frosted white input background (30% opacity).
+- **Ghost:** No background or border. Hover fills with Light Mist Gray (#F5F5F5). Dark hover uses muted at 50% opacity.
+- **Destructive:** Vivid Red at 10% opacity background with Vivid Red text. Hover increases to 20% opacity. Dark mode uses 20%/30% opacity for better visibility.
 - **Link:** Primary Green text with underline on hover, 4px offset. No background or border.
 - **Sizes:** Default (36px height, text-sm), Small (32px), Large (40px), Extra-Small (24px, text-xs). Icon variants: icon-xs (24px), icon-sm (32px), icon (36px), icon-lg (40px).
-- **Focus:** Soft outer ring (3px) in Ring Gray at 50% opacity for keyboard navigation accessibility.
+- **Focus:** Soft outer ring (3px) in Ring Gray (#A1A1A1) at 50% opacity for keyboard navigation accessibility.
 - **Disabled:** 50% opacity with pointer events disabled.
 
 ### Badges
@@ -103,22 +103,22 @@ The overall mood is **grounded yet refined**, creating a professional aesthetic 
 - **Shape:** Subtly rounded corners (7px/0.45rem radius) — distinctly rounded but not pill-shaped, creating a refined rectangular form with softened edges.
 - **Height:** 24px with 12px horizontal padding — compact but readable.
 - **Border:** 1px solid border in variant-dependent color — outlined style rather than filled, providing clear visual definition.
-- **Default:** Vibrant Forest Green (#0D9F6E) background with Pure White Canvas text.
-- **Success:** Emerald border at 30% opacity, Emerald background at 10% opacity, Emerald 600 text. Dark mode uses Emerald 400 text.
+- **Default:** Deep Emerald Green (#008236) background with Pure White Canvas text.
+- **Success:** Emerald border at 30% opacity, Emerald background at 10% opacity, Vivid Green (#00A63E) text. Dark mode uses Bright Emerald (#00C950) text.
 - **Warning:** Amber border at 30% opacity, Amber background at 10% opacity, Amber 600 text. Dark mode uses Amber 400 text.
-- **Error:** Red border at 30% opacity, Red background at 10% opacity, Red 600 text. Dark mode uses Red 400 text.
+- **Error:** Red border at 30% opacity, Red background at 10% opacity, Vivid Red (#E7000B) text. Dark mode uses Red 400 text.
 - **Info:** Blue border at 30% opacity, Blue background at 10% opacity, Blue 600 text. Dark mode uses Blue 400 text.
-- **Neutral:** Silver Border Gray at 60% opacity, Light Mist Gray at 40% opacity, Medium Warm Gray text.
-- **Outline:** Silver Border Gray border, Light Mist Gray input background at 20% opacity.
+- **Neutral:** Light Border Gray at 60% opacity, Light Mist Gray at 40% opacity, Neutral Gray text.
+- **Outline:** Light Border Gray border. Hover fills with Light Mist Gray.
 - **Ghost:** No border, hover fills with Light Mist Gray.
-- **Destructive:** Coral Error Red border at 30% opacity, Coral background at 10% opacity.
+- **Destructive:** Vivid Red border at 30% opacity, Red background at 10% opacity.
 - **No glow effects:** All variants use semi-transparent backgrounds with colored borders — no box-shadow glow.
 
 ### Cards & Containers
 
 - **Corner Style:** Generously rounded corners (12px/rounded-xl) creating soft, professional edges. Compact variant uses same rounding.
-- **Background:** Pure White Canvas (#FFFFFF) in light mode, Dark Card Surface (#343434) in dark mode.
-- **Border Strategy:** Subtle 1px ring in Near-Black Charcoal at 10% opacity combined with shadow-xs. Creates delicate definition with gentle depth.
+- **Background:** Pure White Canvas (#FFFFFF) in light mode, Dark Card Surface (#171717) in dark mode.
+- **Border Strategy:** Subtle 1px ring in Rich Charcoal at 10% opacity combined with shadow-xs. Creates delicate definition with gentle depth.
 - **Internal Padding:** 24px horizontal, 24px vertical (default, py-6); 16px for small variant (py-4). Comfortable for content-rich layouts.
 - **Section Gap:** 24px (default, gap-6); 16px for small variant (gap-4).
 - **Image Treatment:** First-child images round to match card top corners (rounded-t-xl), last-child images round to match card bottom corners (rounded-b-xl).
@@ -131,29 +131,29 @@ The overall mood is **grounded yet refined**, creating a professional aesthetic 
 
 - **Height:** 36px (h-9) — comfortable for standard forms.
 - **Corner Style:** Subtly rounded corners (6px/0.375rem radius) matching button default.
-- **Border:** 1px Silver Border Gray (#E8E8E8).
+- **Border:** 1px Light Border Gray (#E5E5E5).
 - **Background:** Transparent (light mode), frosted white input at 30% opacity (dark mode).
 - **Text:** 16px (text-base) default, responsive to 14px (text-sm) on md+ screens.
-- **Placeholder:** Medium Warm Gray (#8E8E8E).
-- **Focus:** Border shifts to Ring Gray (#A1A1AA) with 3px outer ring at 50% opacity.
-- **Error:** Border shifts to Coral Error Red with 3px ring at 20% opacity (dark: 40%, border at 50%).
+- **Placeholder:** Neutral Gray (#737373).
+- **Focus:** Border shifts to Ring Gray (#A1A1A1) with 3px outer ring at 50% opacity.
+- **Error:** Border shifts to Vivid Red (#E7000B) with 3px ring at 20% opacity (dark: 40%, border at 50%).
 - **Disabled:** 50% opacity with pointer events and cursor-not-allowed.
 - **File Upload:** Inline flex button at 28px height, transparent background, inherits text color (text-sm).
 
 ### Tabs
 
-- **Pill Variant (default):** Segmented control style with Light Mist Gray (#F7F7F7) background, 3px padding around triggers, 36px height (h-9). Triggers use subtly rounded corners (6px).
-- **Line Variant:** Transparent background with gap between triggers. Active state indicated by 2px underline in Near-Black Charcoal with shadow-sm on active pill.
-- **Trigger inactive:** Near-Black Charcoal at 60% opacity (light mode), Medium Warm Gray (dark mode). Text size 14px (text-sm).
-- **Trigger active:** Pure White Canvas background with Near-Black Charcoal text and shadow-sm (light mode), frosted white input background with white text (dark mode).
+- **Pill Variant (default):** Segmented control style with Light Mist Gray (#F5F5F5) background, 3px padding around triggers, 36px height (h-9). Triggers use subtly rounded corners (6px).
+- **Line Variant:** Transparent background with gap between triggers. Active state indicated by 2px underline in Rich Charcoal with shadow-sm on active pill.
+- **Trigger inactive:** Rich Charcoal at 60% opacity (light mode), Neutral Gray (dark mode). Text size 14px (text-sm).
+- **Trigger active:** Pure White Canvas background with Rich Charcoal text and shadow-sm (light mode), frosted white input background with white text (dark mode).
 - **Transition:** 200ms ease-in-out for smooth state changes.
 
 ### Sidebar
 
 - **Dimensions:** 256px expanded (desktop), 288px (mobile), 48px collapsed icon mode.
-- **Background:** Off-White Near-Pure (#FAFAFA) in light mode, Dark Card Surface (#343434) in dark mode.
+- **Background:** Off-White Near-Pure (#FAFAFA) in light mode, Dark Card Surface (#171717) in dark mode.
 - **Menu Button:** 32px height (default), 28px (small), 48px (large). Corner radius ~6px.
-- **Menu Button states:** Default shows Medium Warm Gray text. Hover adds sidebar accent at 50% opacity with sidebar foreground text. Active state uses sidebar primary at 10% background with medium font weight and sidebar primary text.
+- **Menu Button states:** Default shows Neutral Gray text. Hover adds sidebar accent at 50% opacity with sidebar foreground text. Active state uses sidebar primary at 10% background with medium font weight and sidebar primary text.
 - **Collapsible:** Supports offcanvas, icon, and none modes. Icon mode shows only icons with tooltips on hover.
 - **Keyboard shortcut:** Ctrl+B / Cmd+B to toggle.
 - **Sub-menu:** Indented with left border line, 28px height, same state colors as parent buttons. Text size 12px (text-xs) for both sm and md sizes.
@@ -169,7 +169,7 @@ The overall mood is **grounded yet refined**, creating a professional aesthetic 
 ### Navigation
 
 - **Style:** Vertical sidebar with grouped sections, collapsible sub-menus.
-- **Typography:** 12px, Medium Warm Gray default, transitions to sidebar foreground on hover.
+- **Typography:** 12px, Neutral Gray default, transitions to sidebar foreground on hover.
 - **Active Indicator:** Sidebar primary at 10% background with medium font weight and sidebar primary text.
 - **Hover:** Sidebar accent at 50% opacity background with sidebar foreground text.
 - **Transition:** 200ms ease-out for smooth color and background changes.
@@ -230,16 +230,16 @@ When creating new screens for this project, reference these specific instruction
 
 Always use the descriptive names with hex codes:
 
-- Primary CTA: "Vibrant Forest Green (#0D9F6E)"
+- Primary CTA: "Deep Emerald Green (#008236)"
 - Backgrounds: "Pure White Canvas (#FFFFFF)" or "Off-White Near-Pure (#FAFAFA)"
-- Text: "Near-Black Charcoal (#252525)" or "Medium Warm Gray (#8E8E8E)"
-- Borders: "Silver Border Gray (#E8E8E8)"
-- Error: "Coral Error Red (#E54D42)"
+- Text: "Rich Charcoal (#0A0A0A)" or "Neutral Gray (#737373)"
+- Borders: "Light Border Gray (#E5E5E5)"
+- Error: "Vivid Red (#E7000B)"
 
 ### Component Prompts
 
 - "Create a data table card with generously rounded corners (rounded-xl), subtle 1px ring border, shadow-xs, and comfortable 24px padding"
-- "Design a primary action button in Vibrant Forest Green (#0D9F6E) with subtly rounded corners and comfortable 36px height (h-9)"
+- "Design a primary action button in Deep Emerald Green (#008236) with subtly rounded corners and comfortable 36px height (h-9)"
 - "Add a status badge with subtly rounded rectangular corners, outlined style with semi-transparent background and colored border"
 - "Build a sidebar navigation with collapsible icon mode, 256px expanded width, and smooth 200ms transitions"
 
@@ -258,7 +258,7 @@ When refining existing screens:
 - Never use box-shadow glow on badges or buttons — use semi-transparent backgrounds with colored borders
 - Never use transition-all — always specify explicit transition properties
 - Cards use shadow-xs combined with a 1px ring for gentle depth — do not remove the shadow
-- Never mix more than one saturated color (Vibrant Forest Green) with functional colors on a single screen
+- Never mix more than one saturated color (Deep Emerald Green) with functional colors on a single screen
 - Always maintain the vega sizing convention: buttons default h-9, inputs h-9, badges h-6, cards rounded-xl with 24px padding
 - Always use OKLCH color space for design tokens — never hardcode hex values in CSS
 - Always support dark mode with frosted white borders (rgba transparency) instead of solid gray borders

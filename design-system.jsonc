@@ -17,76 +17,325 @@
 
   // ----------------------------------------------------------
   // 2. COLOR TOKENS (OKLCH color space)
+  // Hex approximations for reference only — always use OKLCH in CSS
   // ----------------------------------------------------------
   "colors": {
     // --- Light mode (default / :root) ---
     "light": {
-      "background": "oklch(1 0 0)",
-      "foreground": "oklch(0.145 0 0)",
-      "card": "oklch(1 0 0)",
-      "card-foreground": "oklch(0.145 0 0)",
-      "popover": "oklch(1 0 0)",
-      "popover-foreground": "oklch(0.145 0 0)",
-      "primary": "oklch(0.527 0.154 150.069)",
-      "primary-foreground": "oklch(0.982 0.018 155.826)",
-      "secondary": "oklch(0.967 0.001 286.375)",
-      "secondary-foreground": "oklch(0.21 0.006 285.885)",
-      "muted": "oklch(0.97 0 0)",
-      "muted-foreground": "oklch(0.556 0 0)",
-      "accent": "oklch(0.97 0 0)",
-      "accent-foreground": "oklch(0.205 0 0)",
-      "destructive": "oklch(0.577 0.245 27.325)",
-      "border": "oklch(0.922 0 0)",
-      "input": "oklch(0.922 0 0)",
-      "ring": "oklch(0.708 0 0)",
-      "chart-1": "oklch(0.871 0.15 154.449)",
-      "chart-2": "oklch(0.723 0.219 149.579)",
-      "chart-3": "oklch(0.627 0.194 149.214)",
-      "chart-4": "oklch(0.527 0.154 150.069)",
-      "chart-5": "oklch(0.448 0.119 151.328)",
-      "sidebar": "oklch(0.985 0 0)",
-      "sidebar-foreground": "oklch(0.145 0 0)",
-      "sidebar-primary": "oklch(0.627 0.194 149.214)",
-      "sidebar-primary-foreground": "oklch(0.982 0.018 155.826)",
-      "sidebar-accent": "oklch(0.97 0 0)",
-      "sidebar-accent-foreground": "oklch(0.205 0 0)",
-      "sidebar-border": "oklch(0.922 0 0)",
-      "sidebar-ring": "oklch(0.708 0 0)",
+      "background": {
+        "value": "oklch(1 0 0)",
+        "hex": "#FFFFFF",
+        "name": "Pure White Canvas",
+      },
+      "foreground": {
+        "value": "oklch(0.145 0 0)",
+        "hex": "#0A0A0A",
+        "name": "Rich Charcoal",
+      },
+      "card": {
+        "value": "oklch(1 0 0)",
+        "hex": "#FFFFFF",
+        "name": "Pure White Canvas",
+      },
+      "card-foreground": {
+        "value": "oklch(0.145 0 0)",
+        "hex": "#0A0A0A",
+        "name": "Rich Charcoal",
+      },
+      "popover": {
+        "value": "oklch(1 0 0)",
+        "hex": "#FFFFFF",
+        "name": "Pure White Canvas",
+      },
+      "popover-foreground": {
+        "value": "oklch(0.145 0 0)",
+        "hex": "#0A0A0A",
+        "name": "Rich Charcoal",
+      },
+      "primary": {
+        "value": "oklch(0.527 0.154 150.069)",
+        "hex": "#008236",
+        "name": "Deep Emerald Green",
+      },
+      "primary-foreground": {
+        "value": "oklch(0.982 0.018 155.826)",
+        "hex": "#F0FDF4",
+        "name": "Mint Wash",
+      },
+      "secondary": {
+        "value": "oklch(0.967 0.001 286.375)",
+        "hex": "#F4F4F5",
+        "name": "Soft Cloud Gray",
+      },
+      "secondary-foreground": {
+        "value": "oklch(0.21 0.006 285.885)",
+        "hex": "#18181B",
+        "name": "Dark Zinc",
+      },
+      "muted": {
+        "value": "oklch(0.97 0 0)",
+        "hex": "#F5F5F5",
+        "name": "Light Mist Gray",
+      },
+      "muted-foreground": {
+        "value": "oklch(0.556 0 0)",
+        "hex": "#737373",
+        "name": "Neutral Gray",
+      },
+      "accent": {
+        "value": "oklch(0.97 0 0)",
+        "hex": "#F5F5F5",
+        "name": "Light Mist Gray",
+      },
+      "accent-foreground": {
+        "value": "oklch(0.205 0 0)",
+        "hex": "#171717",
+        "name": "Dark Neutral",
+      },
+      "destructive": {
+        "value": "oklch(0.577 0.245 27.325)",
+        "hex": "#E7000B",
+        "name": "Vivid Red",
+      },
+      "border": {
+        "value": "oklch(0.922 0 0)",
+        "hex": "#E5E5E5",
+        "name": "Light Border Gray",
+      },
+      "input": {
+        "value": "oklch(0.922 0 0)",
+        "hex": "#E5E5E5",
+        "name": "Light Border Gray",
+      },
+      "ring": {
+        "value": "oklch(0.708 0 0)",
+        "hex": "#A1A1A1",
+        "name": "Ring Gray",
+      },
+      "chart-1": {
+        "value": "oklch(0.871 0.15 154.449)",
+        "hex": "#7BF1A8",
+        "name": "Mint Light",
+      },
+      "chart-2": {
+        "value": "oklch(0.723 0.219 149.579)",
+        "hex": "#00C950",
+        "name": "Bright Emerald",
+      },
+      "chart-3": {
+        "value": "oklch(0.627 0.194 149.214)",
+        "hex": "#00A63E",
+        "name": "Vivid Green",
+      },
+      "chart-4": {
+        "value": "oklch(0.527 0.154 150.069)",
+        "hex": "#008236",
+        "name": "Deep Emerald Green",
+      },
+      "chart-5": {
+        "value": "oklch(0.448 0.119 151.328)",
+        "hex": "#016630",
+        "name": "Forest Deep",
+      },
+      "sidebar": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Off-White Near-Pure",
+      },
+      "sidebar-foreground": {
+        "value": "oklch(0.145 0 0)",
+        "hex": "#0A0A0A",
+        "name": "Rich Charcoal",
+      },
+      "sidebar-primary": {
+        "value": "oklch(0.627 0.194 149.214)",
+        "hex": "#00A63E",
+        "name": "Vivid Green",
+      },
+      "sidebar-primary-foreground": {
+        "value": "oklch(0.982 0.018 155.826)",
+        "hex": "#F0FDF4",
+        "name": "Mint Wash",
+      },
+      "sidebar-accent": {
+        "value": "oklch(0.97 0 0)",
+        "hex": "#F5F5F5",
+        "name": "Light Mist Gray",
+      },
+      "sidebar-accent-foreground": {
+        "value": "oklch(0.205 0 0)",
+        "hex": "#171717",
+        "name": "Dark Neutral",
+      },
+      "sidebar-border": {
+        "value": "oklch(0.922 0 0)",
+        "hex": "#E5E5E5",
+        "name": "Light Border Gray",
+      },
+      "sidebar-ring": {
+        "value": "oklch(0.708 0 0)",
+        "hex": "#A1A1A1",
+        "name": "Ring Gray",
+      },
     },
 
-    // --- Dark mode (.dark) ---
+    // ---Dark mode (.dark) ---
     "dark": {
-      "background": "oklch(0.145 0 0)",
-      "foreground": "oklch(0.985 0 0)",
-      "card": "oklch(0.205 0 0)",
-      "card-foreground": "oklch(0.985 0 0)",
-      "popover": "oklch(0.205 0 0)",
-      "popover-foreground": "oklch(0.985 0 0)",
-      "primary": "oklch(0.448 0.119 151.328)",
-      "primary-foreground": "oklch(0.982 0.018 155.826)",
-      "secondary": "oklch(0.274 0.006 286.033)",
-      "secondary-foreground": "oklch(0.985 0 0)",
-      "muted": "oklch(0.269 0 0)",
-      "muted-foreground": "oklch(0.708 0 0)",
-      "accent": "oklch(0.269 0 0)",
-      "accent-foreground": "oklch(0.985 0 0)",
-      "destructive": "oklch(0.704 0.191 22.216)",
-      "border": "oklch(1 0 0 / 10%)",
-      "input": "oklch(1 0 0 / 15%)",
-      "ring": "oklch(0.556 0 0)",
-      "chart-1": "oklch(0.871 0.15 154.449)",
-      "chart-2": "oklch(0.723 0.219 149.579)",
-      "chart-3": "oklch(0.627 0.194 149.214)",
-      "chart-4": "oklch(0.527 0.154 150.069)",
-      "chart-5": "oklch(0.448 0.119 151.328)",
-      "sidebar": "oklch(0.205 0 0)",
-      "sidebar-foreground": "oklch(0.985 0 0)",
-      "sidebar-primary": "oklch(0.723 0.219 149.579)",
-      "sidebar-primary-foreground": "oklch(0.982 0.018 155.826)",
-      "sidebar-accent": "oklch(0.269 0 0)",
-      "sidebar-accent-foreground": "oklch(0.985 0 0)",
-      "sidebar-border": "oklch(1 0 0 / 10%)",
-      "sidebar-ring": "oklch(0.556 0 0)",
+      "background": {
+        "value": "oklch(0.145 0 0)",
+        "hex": "#0A0A0A",
+        "name": "Rich Charcoal Canvas",
+      },
+      "foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "card": {
+        "value": "oklch(0.205 0 0)",
+        "hex": "#171717",
+        "name": "Dark Card Surface",
+      },
+      "card-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "popover": {
+        "value": "oklch(0.205 0 0)",
+        "hex": "#171717",
+        "name": "Dark Card Surface",
+      },
+      "popover-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "primary": {
+        "value": "oklch(0.448 0.119 151.328)",
+        "hex": "#016630",
+        "name": "Dark Forest Green",
+      },
+      "primary-foreground": {
+        "value": "oklch(0.982 0.018 155.826)",
+        "hex": "#F0FDF4",
+        "name": "Mint Wash",
+      },
+      "secondary": {
+        "value": "oklch(0.274 0.006 286.033)",
+        "hex": "#27272A",
+        "name": "Dark Secondary",
+      },
+      "secondary-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "muted": {
+        "value": "oklch(0.269 0 0)",
+        "hex": "#262626",
+        "name": "Dark Muted",
+      },
+      "muted-foreground": {
+        "value": "oklch(0.708 0 0)",
+        "hex": "#A1A1A1",
+        "name": "Dark Text Muted",
+      },
+      "accent": {
+        "value": "oklch(0.269 0 0)",
+        "hex": "#262626",
+        "name": "Dark Muted",
+      },
+      "accent-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "destructive": {
+        "value": "oklch(0.704 0.191 22.216)",
+        "hex": "#FF6467",
+        "name": "Soft Red",
+      },
+      "border": {
+        "value": "oklch(1 0 0 / 10%)",
+        "hex": "rgba(255,255,255,0.10)",
+        "name": "Frosted White Border",
+      },
+      "input": {
+        "value": "oklch(1 0 0 / 15%)",
+        "hex": "rgba(255,255,255,0.15)",
+        "name": "Frosted White Input",
+      },
+      "ring": {
+        "value": "oklch(0.556 0 0)",
+        "hex": "#737373",
+        "name": "Dark Ring Gray",
+      },
+      "chart-1": {
+        "value": "oklch(0.871 0.15 154.449)",
+        "hex": "#7BF1A8",
+        "name": "Mint Light",
+      },
+      "chart-2": {
+        "value": "oklch(0.723 0.219 149.579)",
+        "hex": "#00C950",
+        "name": "Bright Emerald",
+      },
+      "chart-3": {
+        "value": "oklch(0.627 0.194 149.214)",
+        "hex": "#00A63E",
+        "name": "Vivid Green",
+      },
+      "chart-4": {
+        "value": "oklch(0.527 0.154 150.069)",
+        "hex": "#008236",
+        "name": "Deep Emerald Green",
+      },
+      "chart-5": {
+        "value": "oklch(0.448 0.119 151.328)",
+        "hex": "#016630",
+        "name": "Forest Deep",
+      },
+      "sidebar": {
+        "value": "oklch(0.205 0 0)",
+        "hex": "#171717",
+        "name": "Dark Card Surface",
+      },
+      "sidebar-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "sidebar-primary": {
+        "value": "oklch(0.723 0.219 149.579)",
+        "hex": "#00C950",
+        "name": "Bright Emerald",
+      },
+      "sidebar-primary-foreground": {
+        "value": "oklch(0.982 0.018 155.826)",
+        "hex": "#F0FDF4",
+        "name": "Mint Wash",
+      },
+      "sidebar-accent": {
+        "value": "oklch(0.269 0 0)",
+        "hex": "#262626",
+        "name": "Dark Muted",
+      },
+      "sidebar-accent-foreground": {
+        "value": "oklch(0.985 0 0)",
+        "hex": "#FAFAFA",
+        "name": "Near-White",
+      },
+      "sidebar-border": {
+        "value": "oklch(1 0 0 / 10%)",
+        "hex": "rgba(255,255,255,0.10)",
+        "name": "Frosted White Border",
+      },
+      "sidebar-ring": {
+        "value": "oklch(0.556 0 0)",
+        "hex": "#737373",
+        "name": "Dark Ring Gray",
+      },
     },
   },
 
@@ -151,14 +400,14 @@
         "link": "text-primary underline-offset-4 hover:underline",
       },
       "sizes": {
-        "default": "h-7 gap-1 px-2 text-xs/relaxed has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        "xs": "h-5 gap-1 rounded-sm px-2 text-[0.625rem] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-2.5",
-        "sm": "h-6 gap-1 px-2 text-xs/relaxed has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        "lg": "h-8 gap-1 px-2.5 text-xs/relaxed has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&_svg:not([class*='size-'])]:size-4",
-        "icon": "size-7 [&_svg:not([class*='size-'])]:size-3.5",
-        "icon-xs": "size-5 rounded-sm [&_svg:not([class*='size-'])]:size-2.5",
-        "icon-sm": "size-6 [&_svg:not([class*='size-'])]:size-3",
-        "icon-lg": "size-8 [&_svg:not([class*='size-'])]:size-4",
+        "default": "h-9 gap-1.5 px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        "xs": "h-6 gap-1 rounded-[min(var(--radius-md),8px)] px-2 text-xs in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        "sm": "h-8 gap-1 rounded-[min(var(--radius-md),10px)] px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5",
+        "lg": "h-10 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        "icon": "size-9",
+        "icon-xs": "size-6 rounded-[min(var(--radius-md),8px)] in-data-[slot=button-group]:rounded-md [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm": "size-8 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-md",
+        "icon-lg": "size-10",
       },
       "defaultVariants": {
         "variant": "default",
@@ -167,7 +416,34 @@
     },
 
     // ----------------------------------------------------------
-    // 7. COMPONENT — Badge
+    // 7. COMPONENT — Card
+    // ----------------------------------------------------------
+    "card": {
+      "source": "src/components/ui/card.tsx",
+      "baseClasses": "group/card flex flex-col gap-6 overflow-hidden rounded-xl bg-card py-6 text-sm text-card-foreground shadow-xs ring-1 ring-foreground/10 has-[>img:first-child]:pt-0 data-[size=sm]:gap-4 data-[size=sm]:py-4 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
+      "sizes": {
+        "default": "gap-6 py-6",
+        "sm": "gap-4 py-4",
+      },
+      "header": {
+        "baseClasses": "group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-xl px-6 group-data-[size=sm]/card:px-4 has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-6 group-data-[size=sm]/card:[.border-b]:pb-4",
+        "padding": "px-6 (default), px-4 (sm)",
+        "title": "text-base font-medium (default), text-sm (sm)",
+        "description": "text-sm text-muted-foreground",
+      },
+      "content": {
+        "baseClasses": "px-6 group-data-[size=sm]/card:px-4",
+      },
+      "footer": {
+        "baseClasses": "flex items-center rounded-b-xl px-6 group-data-[size=sm]/card:px-4 [.border-t]:pt-6 group-data-[size=sm]/card:[.border-t]:pt-4",
+      },
+      "borderRadius": "rounded-xl (12px)",
+      "shadow": "shadow-xs",
+      "ring": "ring-1 ring-foreground/10",
+    },
+
+    // ----------------------------------------------------------
+    // 8. COMPONENT — Badge
     // ----------------------------------------------------------
     "badge": {
       "source": "src/components/ui/badge.tsx",
@@ -176,7 +452,7 @@
         "default": "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
         "secondary": "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
         "destructive": "border-destructive/30 bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/15 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20",
-        "outline": "border-border bg-input/20 text-foreground dark:bg-input/30 [a]:hover:bg-muted [a]:hover:text-muted-foreground",
+        "outline": "border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground",
         "ghost": "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         "link": "text-primary underline-offset-4 hover:underline",
         "success": "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:border-emerald-400/30 dark:text-emerald-400 [a]:hover:bg-emerald-500/20",
@@ -193,48 +469,48 @@
     },
 
     // ----------------------------------------------------------
-    // 8. COMPONENT — Input
+    // 9. COMPONENT — Input
     // ----------------------------------------------------------
     "input": {
       "source": "src/components/ui/input.tsx",
-      "baseClasses": "h-7 w-full min-w-0 rounded-md border border-input bg-input/20 px-2 py-0.5 text-sm transition-[color,background-color,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-xs/relaxed file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive/20 md:text-xs/relaxed dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
-      "height": "h-7 (28px)",
+      "baseClasses": "h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-2.5 py-1 text-base shadow-xs transition-[color,background-color,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+      "height": "h-9 (36px)",
       "states": {
-        "focus": "border-ring, ring-2 ring-ring/30",
+        "focus": "border-ring, ring-3 ring-ring/50",
         "disabled": "pointer-events-none, cursor-not-allowed, opacity-50",
-        "error": "border-destructive, ring-2 ring-destructive/20 (dark: ring-destructive/40)",
+        "error": "border-destructive, ring-3 ring-destructive/20 (dark: ring-destructive/40)",
       },
     },
 
     // ----------------------------------------------------------
-    // 9. COMPONENT — Tabs
+    // 10. COMPONENT — Tabs
     // ----------------------------------------------------------
     "tabs": {
       "source": "src/components/ui/tabs.tsx",
       "list": {
-        "baseClasses": "group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
+        "baseClasses": "group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-9 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
         "variants": {
           "default": "bg-muted",
           "line": "gap-1 bg-transparent",
         },
       },
       "trigger": {
-        "baseClasses": "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-xs font-medium whitespace-nowrap text-foreground/60 transition-[color,background-color,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-inout)] group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start group-data-vertical/tabs:py-[calc(--spacing(1.25))] hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 dark:text-muted-foreground dark:hover:text-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5",
+        "baseClasses": "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap text-foreground/60 transition-[color,background-color,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-inout)] group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 dark:text-muted-foreground dark:hover:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "activeState": "data-active:bg-background data-active:text-foreground (dark: data-active:border-input data-active:bg-input/30 data-active:text-foreground)",
         "lineVariant": "bg-transparent (both default and active)",
         "easing": "ease-[var(--ease-inout)] (differs from component default)",
       },
       "content": {
-        "baseClasses": "flex-1 text-xs/relaxed outline-none",
+        "baseClasses": "flex-1 text-sm outline-none",
       },
     },
 
     // ----------------------------------------------------------
-    // 10. COMPONENT — Sidebar Menu Button
+    // 11. COMPONENT — Sidebar Menu Button
     // ----------------------------------------------------------
     "sidebarMenuButton": {
       "source": "src/components/ui/sidebar.tsx",
-      "baseClasses": "peer/menu-button group/menu-button flex w-full items-center gap-2 overflow-hidden rounded-[calc(var(--radius-sm)+2px)] p-2 text-left text-xs text-muted-foreground ring-sidebar-ring outline-hidden transition-[color,background-color,border-color] duration-[var(--duration-base)] ease-[var(--ease-out)] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! hover:bg-sidebar-accent/50 hover:text-sidebar-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-sidebar-primary/10 data-active:font-medium data-active:text-sidebar-primary [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate",
+      "baseClasses": "peer/menu-button group/menu-button flex w-full items-center gap-2 overflow-hidden rounded-[calc(var(--radius-sm)+2px)] p-2 text-left text-xs text-muted-foreground ring-sidebar-ring outline-hidden transition-[color,background-color,border-color] duration-[var(--duration-base)] ease-[var(--ease-out)] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! hover:bg-sidebar-accent/50 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-primary/20 active:text-primary disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-open:hover:bg-sidebar-accent/50 data-open:hover:text-sidebar-foreground data-active:bg-sidebar-primary/10 data-active:font-medium data-active:text-sidebar-primary [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate",
       "variants": {
         "default": "",
         "outline": "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent/50 hover:text-sidebar-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
@@ -242,7 +518,7 @@
       "sizes": {
         "default": "h-8 text-xs",
         "sm": "h-7 text-xs",
-        "lg": "h-12 text-xs group-data-[collapsible=icon]:p-0!",
+        "lg": "h-12 text-sm group-data-[collapsible=icon]:p-0!",
       },
       "states": {
         "default": "text-muted-foreground",
@@ -252,11 +528,11 @@
     },
 
     // ----------------------------------------------------------
-    // 11. COMPONENT — Sidebar Menu Sub Button
+    // 12. COMPONENT — Sidebar Menu Sub Button
     // ----------------------------------------------------------
     "sidebarMenuSubButton": {
       "source": "src/components/ui/sidebar.tsx",
-      "baseClasses": "flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-muted-foreground ring-sidebar-ring outline-hidden transition-[color,background-color,border-color] duration-[var(--duration-base)] ease-[var(--ease-out)] group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent/50 hover:text-sidebar-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[size=md]:text-xs data-[size=sm]:text-xs data-active:bg-sidebar-primary/10 data-active:text-sidebar-primary [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",
+      "baseClasses": "flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-muted-foreground ring-sidebar-ring outline-hidden transition-[color,background-color,border-color] duration-[var(--duration-base)] ease-[var(--ease-out)] group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent/50 hover:text-sidebar-foreground focus-visible:ring-2 active:bg-primary/20 active:text-primary disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[size=md]:text-xs data-[size=sm]:text-xs data-active:bg-sidebar-primary/10 data-active:text-sidebar-primary [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",
       "sizes": ["sm", "md"],
       "states": {
         "default": "text-muted-foreground",
@@ -267,7 +543,7 @@
   },
 
   // ----------------------------------------------------------
-  // 12. LAYOUT — Header
+  // 13. LAYOUT — Header
   // ----------------------------------------------------------
   "layout": {
     "header": {
@@ -282,7 +558,7 @@
   },
 
   // ----------------------------------------------------------
-  // 13. THEME PROVIDER
+  // 14. THEME PROVIDER
   // ----------------------------------------------------------
   "themeProvider": {
     "source": "src/lib/theme-provider.tsx",
@@ -290,7 +566,7 @@
   },
 
   // ----------------------------------------------------------
-  // 14. BASE LAYER RULES
+  // 15. BASE LAYER RULES
   // ----------------------------------------------------------
   "baseLayer": {
     "global": "@apply border-border outline-ring/50",
