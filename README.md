@@ -1,3 +1,5 @@
+![banner-img](/public/banner.png)
+
 # TanStack Start + shadcn/ui
 
 This is a template for a new TanStack Start project with React, TypeScript, and shadcn/ui.
@@ -18,4 +20,12 @@ To use the components in your app, import them as follows:
 
 ```tsx
 import { Button } from "@/components/ui/button";
+```
+
+## Components Lookup
+
+Look the Design System page for all available components by navigating to 
+
+```
+http://localhost:3000/design-system
 ```

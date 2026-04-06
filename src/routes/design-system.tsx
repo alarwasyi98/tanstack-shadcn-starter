@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
 import {
   Activity,
@@ -128,6 +129,7 @@ import {
 import { AppSidebar } from "@/components/app-sidebar"
 import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { toast } from "sonner"
 import {
   ChartContainer,
   ChartTooltip,
@@ -302,19 +304,49 @@ function ColorSwatch({
   variable: string
   value: string
 }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(value)
+    setCopied(true)
+    toast.success(`Copied color value`, {
+      description: `${value} copied to clipboard`,
+    })
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   return (
-    <div className="group flex flex-col gap-1.5">
-      <div
-        className="h-12 w-full rounded-md ring-1 ring-foreground/10 transition-transform group-hover:scale-[1.02]"
-        style={{ background: value }}
-      />
-      <div>
-        <p className="text-xs font-medium">{name}</p>
-        <p className="font-mono text-[0.625rem] text-muted-foreground">
-          {variable}
-        </p>
-      </div>
-    </div>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="group flex w-full flex-col gap-1.5 text-left focus:outline-none"
+        >
+          <div
+            className="relative flex h-12 w-full items-center justify-center rounded-md ring-1 ring-foreground/10 transition-transform group-hover:scale-[1.02]"
+            style={{ background: value }}
+          >
+            <div className="flex items-center justify-center rounded-md bg-black/20 p-1.5 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+              {copied ? (
+                <Check className="size-4 text-white" />
+              ) : (
+                <Copy className="size-4 text-white" />
+              )}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-medium">{name}</p>
+            <p className="font-mono text-[0.625rem] text-muted-foreground transition-colors group-hover:text-foreground">
+              {variable}
+            </p>
+          </div>
+        </button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p className="font-mono text-xs">{value}</p>
+      </TooltipContent>
+    </Tooltip>
   )
 }
 
